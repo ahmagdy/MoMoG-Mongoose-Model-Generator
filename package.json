@@ -1,6 +1,6 @@
 {
   "name": "momog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mongoose Model Generator",
   "main": "app.js",
   "bin": {
