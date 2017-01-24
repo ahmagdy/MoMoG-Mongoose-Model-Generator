@@ -1,0 +1,32 @@
+{
+  "name": "momog",
+  "version": "1.0.0",
+  "description": "Mongoose Model Generator",
+  "main": "app.js",
+  "bin": {
+    "momog": "./bin/app"
+  },
+  "dependencies": {
+    "js-beautify": "^1.6.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmad-Magdy/MoMoG-Mongoose-Model-Generator.git"
+  },
+  "keywords": [
+    "mongoose",
+    "mongo",
+    "mongodb",
+    "odm"
+  ],
+  "author": "Ahmad Magdy <ahmedmagdi@outlook.com> (https://ahmadmagdy.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ahmad-Magdy/MoMoG-Mongoose-Model-Generator/issues"
+  },
+  "homepage": "https://github.com/Ahmad-Magdy/MoMoG-Mongoose-Model-Generator#readme"
+}
