@@ -76,9 +76,10 @@ const userSchema = new Schema({
 });
 module.exports = mongoose.model('User', userSchema);
 ```
+also will generate file with this code in the same directory called **user.js**
 
 #### Another Example
-we need to create `article` model with:
+we need to create **article** model with:
 
 * Title of type string thats should be unique and required 
 * Content of the article also string and required 
@@ -115,7 +116,7 @@ const articleSchema = new Schema({
 });
 module.exports = mongoose.model('Article', articleSchema);
 ```
-
+will generate file with this code in the same directory called **article.js**
 
 ##License:
 [The MIT License](https://opensource.org/licenses/MIT)
