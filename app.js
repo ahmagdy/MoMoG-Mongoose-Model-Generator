@@ -77,7 +77,7 @@ for (let i = 4; i < process.argv.length; i++) {
         }
     }
 }
-
+outputtedFile = outputtedFile.substr(0,outputtedFile.length-1);
 outputtedFile += `}
   });
   module.exports = mongoose.model('${process.argv[process.argv.indexOf('-n') + 1].toTitleCase()}', ${process.argv[process.argv.indexOf('-n') + 1].toLowerCase()}Schema);
