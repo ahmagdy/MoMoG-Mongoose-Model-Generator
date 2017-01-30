@@ -14,9 +14,9 @@ prefix of using it is `momog`
 
 | option        | stands for    | 
 | ------------- |:-------------:| 
-|    -n            |name of the mode| 
-| -f or --field      |   name of the field      |  
- 
+|    -n            |name of the mode          | 
+| -f or --field    |   name of the field      |  
+| -d or --directory|   path to save model     |  
  
 #### Types:
  
@@ -76,7 +76,7 @@ const userSchema = new Schema({
 });
 module.exports = mongoose.model('User', userSchema);
 ```
-also will generate file with this code in the same directory called **user.js**
+also will generate file with this code in the same directory because we don't specified the directory called **user.js**
 
 #### Another Example
 we need to create **article** model with:
@@ -87,7 +87,7 @@ we need to create **article** model with:
 * The Publisher we just need the id
 
 ```text
-momog -n article -f title string u r -f content string r -f date date r -f publisher id ref user
+momog -n article -f title string u r -f content string r -f date date r -f publisher id ref user -d model
 ```
 
 will generate :
@@ -116,7 +116,7 @@ const articleSchema = new Schema({
 });
 module.exports = mongoose.model('Article', articleSchema);
 ```
-will generate file with this code in the same directory called **article.js**
+will generate file with this code in the directory ./models called **article.js**
 
 ##License:
 [The MIT License](https://opensource.org/licenses/MIT)

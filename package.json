@@ -1,12 +1,13 @@
 {
   "name": "momog",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mongoose Model Generator",
   "main": "app.js",
   "bin": {
     "momog": "./bin/app"
   },
   "dependencies": {
+    "commander": "^2.9.0",
     "js-beautify": "^1.6.8"
   },
   "devDependencies": {},

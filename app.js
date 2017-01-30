@@ -1,17 +1,32 @@
 const beautifyer = require('js-beautify').js_beautify;
-const fs = require('fs');
+const commander = require('commander');
+const fs = require('fs'),
+    path = require('path');
+
 
 //Adding Title Case to String for only single word
 String.prototype.toTitleCase = function () {
     return this.charAt(0).toUpperCase() + this.substr(1).toLowerCase();
 }
 
+//function to Collect options of Commander
+function collect(val, arr) {
+    arr.push(val);
+    return arr;
+}
+
+commander
+    .option('-n, --name <modelName>', 'Define the model name')
+    .option('-f, --field <FieldName>', 'Define Field Name', collect, [])
+    .option('-d, --directory <DirectoryPath>', 'Path if the file')
+    .parse(process.argv);
+
 
 let counter = 0;
 let outputtedFile = `
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const ${process.argv[process.argv.indexOf('-n') + 1].toLowerCase()}Schema = new Schema({
+const ${commander.name.toLowerCase()}Schema = new Schema({
 `;
 
 for (let i = 4; i < process.argv.length; i++) {
@@ -77,18 +92,26 @@ for (let i = 4; i < process.argv.length; i++) {
         }
     }
 }
-outputtedFile = outputtedFile.substr(0,outputtedFile.length-1);
+outputtedFile = outputtedFile.substr(0, outputtedFile.length - 1);
 outputtedFile += `}
   });
-  module.exports = mongoose.model('${process.argv[process.argv.indexOf('-n') + 1].toTitleCase()}', ${process.argv[process.argv.indexOf('-n') + 1].toLowerCase()}Schema);
+  module.exports = mongoose.model('${commander.name.toTitleCase()}', ${commander.name.toLowerCase()}Schema);
   `;
 
 outputtedFile = beautifyer(outputtedFile);
 
-fs.writeFile(`./${process.argv[process.argv.indexOf('-n') + 1].toLowerCase()}.js`, outputtedFile, (err) => {
+let fileName;
+
+if (commander.directory && fs.existsSync(path.join(__dirname, commander.directory))) {
+    fileName = path.join(__dirname, commander.directory, commander.name.toLowerCase());
+} else {
+    fileName = './' + commander.name.toLowerCase();
+}
+
+fs.writeFile(`${fileName}.js`, outputtedFile, (err) => {
     if (err) {
         console.log(`Something wrong Error: ${err}`);
         return;
     }
-    console.log('Created!! in the same directory');
+    console.log(`Created!! in the directory  ${fileName}.js`);
 });
