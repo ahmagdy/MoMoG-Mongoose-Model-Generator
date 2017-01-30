@@ -87,7 +87,7 @@ we need to create **article** model with:
 * The Publisher we just need the id
 
 ```text
-momog -n article -f title string u r -f content string r -f date date r -f publisher id ref user -d model
+momog -n article -f title string u r -f content string r -f date date r -f publisher id ref user -d models
 ```
 
 will generate :

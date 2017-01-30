@@ -47,7 +47,6 @@ for (let i = 4; i < process.argv.length; i++) {
         i++;
     }
     else if (item.toString().startsWith('-') && (item.toString() != '-f' && item.toString() != '--field') && counter >= 0) {
-        console.log('-------------wrong Option-------------');
         let nextField = process.argv.slice(i + 1).indexOf('-f');
         i = nextField != -1 ? nextField + i : process.argv.length;
     }
@@ -101,9 +100,8 @@ outputtedFile += `}
 outputtedFile = beautifyer(outputtedFile);
 
 let fileName;
-
-if (commander.directory && fs.existsSync(path.join(__dirname, commander.directory))) {
-    fileName = path.join(__dirname, commander.directory, commander.name.toLowerCase());
+if (commander.directory && fs.existsSync(path.join(process.cwd(), commander.directory))) {
+    fileName = path.join(process.cwd(), commander.directory, commander.name.toLowerCase());
 } else {
     fileName = './' + commander.name.toLowerCase();
 }
