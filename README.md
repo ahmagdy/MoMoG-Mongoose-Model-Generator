@@ -1,16 +1,16 @@
-#MoMoG
+# MoMoG
 Mongoose Model Generator as momog
 A small tool thats help to write mongoose model for mongodb as quick as possible for saving time, and not worry so much about writing model just think about it how it will be look like and just do it in a second.
 
-##Installing
+## Installing
 ```text
 npm install -g momog
 ```
 
-##Usage
+## Usage
 prefix of using it is `momog`
 
-####The Options :
+#### The Options :
 
 | option        | stands for    | 
 | ------------- |:-------------:| 
@@ -29,7 +29,7 @@ prefix of using it is `momog`
 |    id          |ObjectId| 
 
  
-####Fields Name Shortcuts:
+#### Fields Name Shortcuts:
 | Shortcut        | stands for    | 
 | ------------- |:-------------:| 
 |    r          |required| 
@@ -40,7 +40,7 @@ prefix of using it is `momog`
 
 
 
-##Examples:
+## Examples:
 We Want to create a basic **user** model with: 
 
 * User name field thats string , required and of course sould be unique
@@ -118,5 +118,5 @@ module.exports = mongoose.model('Article', articleSchema);
 ```
 will generate file with this code in the directory ./models called **article.js**
 
-##License:
+## License:
 [The MIT License](https://opensource.org/licenses/MIT)
